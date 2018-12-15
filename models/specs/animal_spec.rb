@@ -45,7 +45,27 @@ def setup
           'breed' => 'Labrador',
           'admission_date' => '19 01 2016',
           'ready_adoption' => 'no',
-          'owner_id' => nil})
+          'owner_id' => nil})# ask about this
       end
+
+def test_animal_has_name
+  assert_equal("Neo", @animal_1.name())
+end
+
+def test_animal_has_type
+  assert_equal("cat", @animal_1.type())
+end
+def test_animal_has_breed
+  assert_equal("Persian", @animal_1.breed())
+end
+def test_animal_has_admission_date
+    assert_equal("12 04 2017", @animal_1.admission_date())
+end
+def test_animal_ready_adoption
+  assert_equal("yes", @animal_1.ready_adoption())
+end
+def test_animal_has_owner_id
+  assert_equal(nil, @animal_1.owner_id())#?
+end
 
 end
