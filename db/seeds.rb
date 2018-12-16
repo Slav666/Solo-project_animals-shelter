@@ -2,7 +2,7 @@ require_relative('../models/animal')
 require_relative('../models/owner')
 
 require('pry')
-
+#Owner.delete_all
 #Animal.delete_all
 owner1 = Owner.new({'name' => 'James Kelly', 'city' => 'Perth', 'phone_number' => 6768686868})
 owner1.save
@@ -20,12 +20,12 @@ animal2 = Animal.new({'name' => 'Morpheus', 'type' => 'dog', 'breed' => 'Boxer',
 animal2.save
 animal3 = Animal.new({'name' => 'Trinity', 'type' => 'cat', 'breed' => 'Persian', 'admission_date' => '03 04 2018', 'ready_adoption' => 'no', 'owner_id' => nil})#animal3.save
 animal3.save
+#owner1.delete
+#animal3.delete
 
-animal3.delete
-
-all_animals = Animal.all
-find_neo = Animal.find(animal2.id)
-
+#all_animals = Animal.all
+#find_neo = Animal.find(animal2.id)
+find_owner = Owner.find(owner2.id)
 
 binding.pry
 nil
