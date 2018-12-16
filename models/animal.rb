@@ -4,8 +4,8 @@ require('pry')
 
 
 class Animal
-
-attr_reader :id, :name, :type, :breed, :admission_date, :ready_adoption, :owner_id
+attr_reader :id
+attr_accessor :name, :type, :breed, :admission_date, :ready_adoption, :owner_id
 #:name, :type, :breed, :admission_date, :ready_adoption, :owner_id
 
 def initialize(options)
@@ -18,7 +18,7 @@ def initialize(options)
   @owner_id = options['owner_id'].to_i  if options['id']
 end
 
-def save()
+    def save() #CREATE
       sql = "INSERT INTO animals
       (
         name,
@@ -39,7 +39,51 @@ def save()
       @id = id.to_i
     end
 
+    def update() #UPDATE
+      sql = "UPDATE animals
+      SET
+      (
+      name,
+      type,
+      breed,
+      admission_date,
+      ready_adoption,
+      owner_id
+      ) =
+      (
+      $1, $2, $3, $4, $5, $6
+      )
+      WHERE id = $7"
+      values = [@name, @type, @breed, @admission_date, @ready_adoption, @owner_id, @id ]
+      SqlRunner.run(sql, values)
+    end
 
+    def delete()# DELETE
+      sql = "DELETE FROM animals
+      WHERE id = $1"
+      values = [@id]
+      SqlRunner.run(sql, values)
+    end
 
+    def self.delete_all()#DELETE
+      sql = "DELETE FROM animals"
+      values = []
+      SqlRunner.run(sql, values)
+    end
 
+    def self.find(id) #READ
+      sql = "SELECT * FROM animals
+      WHERE id = $1"
+      values = [id]
+      result = SqlRunner.run(sql ,values).first
+      animal = Animal.new(result)
+      return animal
+    end
+
+    def self.all() #READ
+      sql = "SELECT * FROM animals"
+      results = SqlRunner.run( sql )
+      animals = results.map { |hash| Animal.new( hash ) }
+      return animals
+    end
 end

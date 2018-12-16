@@ -28,6 +28,4 @@ def save()
     id = result.first["id"]
     @id = id.to_i
   end
-
-
 end
