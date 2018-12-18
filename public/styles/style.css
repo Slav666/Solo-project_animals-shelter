@@ -1,0 +1,26 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  background: url('/images/kotki.jpg');
+  background-size: 100%;
+  background-repeat: repeat;
+}
+.topnav {
+  background-color: white;
+  width: 190px;
+  position: relative;
+  top: 2px;
+  border-radius: 5px;
+}
+nav a {
+
+  color:white;
+	font-size: 16px;
+	text-decoration: none;
+  }
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}

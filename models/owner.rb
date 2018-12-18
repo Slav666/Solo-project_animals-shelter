@@ -4,8 +4,8 @@ require('pry')
 class Owner
 
 
-attr_reader :name, :city, :phone_number
-attr_reader :id
+attr_accessor :id, :name, :city, :phone_number
+#attr_reader :id
 def initialize(options)
   @id = options['id'].to_i if options['id']
   @name = options['name']
@@ -29,6 +29,7 @@ def save()
     id = result.first["id"]
     @id = id.to_i
   end
+
   def update() #UPDATE
     sql = "UPDATE owners
     SET
@@ -44,17 +45,20 @@ def save()
     values = [@name, @city, @phone_number, @id ]
     SqlRunner.run(sql, values)
   end
+
   def delete()# DELETE
     sql = "DELETE FROM owners
     WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
+
   def self.delete_all()#DELETE
     sql = "DELETE FROM owners"
     values = []
     SqlRunner.run(sql, values)
   end
+
   def self.find(id) #READ
     sql = "SELECT * FROM owners
     WHERE id = $1"
@@ -63,10 +67,27 @@ def save()
     owner = Owner.new(result)
     return owner
   end
+
   def self.all() #READ
-    sql = "SELECT * FROM animals"
-    results = SqlRunner.run( sql )
-    animals = results.map { |hash| Animal.new( hash ) }
-    return animals
+    sql = "SELECT * FROM owners"
+    owner_data = SqlRunner.run(sql)
+    owners = map_items(owner_data)
+    return owners
   end
+
+  def self.map_items(owner_data)
+    return owner_data.map { |owner| Owner.new(owner) }
+  end
+
+  def animal()
+    sql = "SELECT * FROM animals INNER JOIN owners ON animals.owner_id = owners.id
+           WHERE owners.id = $1;"
+    values = [@id]
+    animals = SqlRunner.run(sql, values)
+    return animals.map { |animal| Animal.new(animal) }
+  end
+
+
+
+
 end

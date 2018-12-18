@@ -1,6 +1,6 @@
-require('minitest/autorun')
-require('minitest/rg')
-require_relative('../animal')
+# require('minitest/autorun')
+# require('minitest/rg')
+# require_relative('../animal')
 
 class AnimalTest < MiniTest::Test
 

@@ -4,8 +4,7 @@ require('pry')
 
 
 class Animal
-attr_reader :id
-attr_accessor :name, :type, :breed, :admission_date, :ready_adoption, :owner_id
+attr_accessor :id, :name, :type, :breed, :admission_date, :ready_adoption, :owner_id
 #:name, :type, :breed, :admission_date, :ready_adoption, :owner_id
 
 def initialize(options)
@@ -15,7 +14,7 @@ def initialize(options)
   @breed = options['breed']
   @admission_date = options['admission_date']
   @ready_adoption = options['ready_adoption']
-  @owner_id = options['owner_id'].to_i  if options['id']
+  @owner_id = options['owner_id'].to_i  if options['owner_id']
 end
 
     def save() #CREATE
@@ -67,13 +66,11 @@ end
 
     def self.delete_all()#DELETE
       sql = "DELETE FROM animals"
-      values = []
       SqlRunner.run(sql, values)
     end
 
     def self.find(id) #READ
-      sql = "SELECT * FROM animals
-      WHERE id = $1"
+      sql = "SELECT * FROM animals WHERE id = $1"
       values = [id]
       result = SqlRunner.run(sql ,values).first
       animal = Animal.new(result)
@@ -83,7 +80,19 @@ end
     def self.all() #READ
       sql = "SELECT * FROM animals"
       results = SqlRunner.run( sql )
-      animals = results.map { |hash| Animal.new( hash ) }
-      return animals
+      return results.map { |hash| Animal.new(hash)}
     end
+
+  def owner()
+      sql = "SELECT * FROM owners WHERE id = $1"
+      values = [@owner_id]
+      owner = SqlRunner.run(sql, values)
+      if owner.count == 1
+        return Owner.new(owner[0])
+      else
+        return Owner.new({})
+      end
+    end
+
+
 end

@@ -1,0 +1,13 @@
+
+<p>Owners</p>
+
+<p>Name: <%=@owner.name%></p>
+
+<% @owner.animal.each do |animal| %>
+<p>Animals: <%=animal.name%></p>
+  <%end%>
+
+  <p><a href="/owners/<%= @owner.id %>/delete">Delete Owner</a></p>
+
+
+  
