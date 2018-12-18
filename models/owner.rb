@@ -55,8 +55,7 @@ def save()
 
   def self.delete_all()#DELETE
     sql = "DELETE FROM owners"
-    values = []
-    SqlRunner.run(sql, values)
+    SqlRunner.run(sql)
   end
 
   def self.find(id) #READ
@@ -80,8 +79,8 @@ def save()
   end
 
   def animal()
-    sql = "SELECT * FROM animals INNER JOIN owners ON animals.owner_id = owners.id
-           WHERE owners.id = $1;"
+    sql = "SELECT animals.* FROM animals INNER JOIN owners ON animals.owner_id = owners.id
+           WHERE owners.id = $1"
     values = [@id]
     animals = SqlRunner.run(sql, values)
     return animals.map { |animal| Animal.new(animal) }

@@ -2,8 +2,9 @@ require_relative('../models/animal')
 require_relative('../models/owner')
 
 require('pry')
-Owner.delete_all
 Animal.delete_all
+
+Owner.delete_all
 owner1 = Owner.new({'name' => 'James Kelly', 'city' => 'Perth', 'phone_number' => 6768686868})
 owner1.save
 

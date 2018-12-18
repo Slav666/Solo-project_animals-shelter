@@ -66,13 +66,13 @@ end
 
     def self.delete_all()#DELETE
       sql = "DELETE FROM animals"
-      SqlRunner.run(sql, values)
+      SqlRunner.run(sql)
     end
 
     def self.find(id) #READ
       sql = "SELECT * FROM animals WHERE id = $1"
       values = [id]
-      result = SqlRunner.run(sql ,values).first
+      result = SqlRunner.run(sql ,values)
       animal = Animal.new(result)
       return animal
     end
@@ -83,16 +83,19 @@ end
       return results.map { |hash| Animal.new(hash)}
     end
 
+
   def owner()
+    # i need to find owner by sql query
+
+    if @owner_id != nil
       sql = "SELECT * FROM owners WHERE id = $1"
       values = [@owner_id]
-      owner = SqlRunner.run(sql, values)
-      if owner.count == 1
-        return Owner.new(owner[0])
-      else
-        return Owner.new({})
-      end
+      results = SqlRunner.run(sql, values)
+      owner = Owner.new(results.first)
     end
-
-
+      return owner
+   # run this sql
+    # use resukts to make owner object
+    # return  object
+  end
 end

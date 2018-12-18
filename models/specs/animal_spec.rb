@@ -1,7 +1,7 @@
-# require('minitest/autorun')
-# require('minitest/rg')
-# require_relative('../animal')
-
+ require('minitest/autorun')
+require('minitest/rg')
+ require_relative('../animal')
+ require_relative('../owner')
 class AnimalTest < MiniTest::Test
 
 
@@ -67,5 +67,13 @@ end
 def test_animal_has_owner_id
   assert_equal(nil, @animal_1.owner_id())#?
 end
+
+# write a test to check the animal has an owner
+def test_animal_has_owner
+  owner = @animal_1.owner()
+  assert_equal(nil, owner)
+end
+#need an animal
+# animal.giveMeMyOwner()
 
 end
