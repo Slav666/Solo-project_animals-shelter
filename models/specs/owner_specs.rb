@@ -26,8 +26,8 @@ end
 def test_owner_has_number
   assert_equal(6768686868, @owner_1.phone_number())
 end
-def test_return_animal_with_owner_id
-  animal = @owner_1.animal
-  assert_equal(@owner_id, animal)
-end
+# def test_return_animal_with_owner_id
+#   animal = @owner_1.animal
+#   assert_equal(@owner_id, animal)
+# end
 end

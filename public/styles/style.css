@@ -9,7 +9,7 @@ body {
   background-color: white;
   width: 190px;
   position: relative;
-  top: 2px;
+  top: 1px;
   border-radius: 5px;
 }
 nav a {
@@ -19,8 +19,9 @@ nav a {
 	text-decoration: none;
   }
 h1 {
-  text-align: center;
+  text-align: left;
 }
-h2 {
-  text-align: center;
+
+.new_an {
+
 }

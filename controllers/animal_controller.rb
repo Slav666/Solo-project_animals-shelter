@@ -22,6 +22,7 @@ get '/animals/:id' do
   erb( :"animal/show" )
 end
 
+
 post '/animals' do
   @animal = Animal.new(params)
   @animal.save
@@ -37,12 +38,7 @@ end
 post '/animals/:id/adopt' do
   animal = Animal.find(params['id'])
   animal.owner_id = params['owner_id'].to_i
+  animal.ready_adoption = params['ready_adoption']
   animal.update
   redirect to "/animals"
-end
-
-post '/animals/:id' do
-  animal = Animal.new(params)
-  animal.update
-  redirect to "/animals/#{params['id']}"
 end

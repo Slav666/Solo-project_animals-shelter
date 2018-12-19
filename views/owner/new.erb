@@ -1,26 +1,23 @@
-<p>This page lets us adopt new animal</p>
-
-<form method="post" action="/pizza-orders">
-  <!-- input for first Name -->
-  <label for="owner_name">First Name:</label>
-  <input id="owner_name" type="text" name="first_name">
-
-
-  <!-- input for last Name -->
-  <label for="last-name">Last Name:</label>
-  <input id="last-name" type="text" name="last_name">
-
-
-  <!-- drop down (select) -->
-  <label for="animal_select">Select an animal: </label>
-  <select id="animal_select" name="topping">
-    <option value="Margerita">Margerita</option>
-    <option value="Calzone">Calzone</option>
-  </select>
-
-  <!-- input field for quantity -->
-  <label for="quantity">Quantity: </label>
-  <input id="quantity" type="number" name="quantity" >
-
-  <input type="submit"  value="Order Pizza">
+<form  action="/owners" method="post">
+<fieldset>
+    <label for="owner_name">Enter your Name:</label>
+    <input
+    type="text"
+    name="name"
+    id="owner_name"
+    />
+    <label for="owner_city">Enter your city:</label>
+    <input
+    type="text"
+    name="city"
+    id="owner_city"
+    />
+    <label for="owner_phone_number">Enter your phone number:</label>
+    <input
+    type="text"
+    name="phone_number"
+    id="owner_phone_number"
+    />
+</fieldset>
+    <input type="submit" value="Register Owner">
 </form>

@@ -3,7 +3,6 @@
 <p>Resident Since: <%=@animal.admission_date%></p>
 <p>Available: <%=@animal.ready_adoption%></p>
 
-
-<p><a href="/animals/<%= @animal.id %>/adopt">Adopt Animal</a></p>
-
-</form>
+<% if @animal.ready_adoption == true %>
+<a href="/animals/<%=@animal.id%>/adopt">Adopt Animal</a>
+<%end%>

@@ -1,5 +1,5 @@
 
-<h4>Animals We Have:</h4>
+ <h4>Animals We Have:</h4> 
 
   <% @animals.each do |animal| %>
   <p>Name: <%=animal.name%> </p>
@@ -7,11 +7,12 @@
   <p>Breed: <%=animal.breed%></p>
   <p>Admission: <%=animal.admission_date%></p>
   <p>Ready for adoption: <%=animal.ready_adoption%></p>
-  <p>Owner: <%= animal.owner.name if animal.owner %></p>
+  <p>Owner: <%=animal.owner.name if animal.owner%></p>
 
-    <% if animal.owner != nil %>
-      <p>Owner: <%= animal.owner.name %></p>
-    <% end %>
+
+
+
+
 
     <p><a href="/animals/<%=animal.id%>">Information</a></p>
     <%end%>

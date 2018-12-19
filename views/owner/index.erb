@@ -1,4 +1,32 @@
 
+<h2>ENTER YOUR NAME TO BECOME ONE OF US</h2>
+
+<form  action="/owners" method="post">
+
+<fieldset>
+    <label for="owner_name">Enter Your Name:</label>
+    <input
+    type="text"
+    name="name"
+    id="owner_name"
+    />
+    <label for="owner_city">Enter your city:</label>
+    <input
+    type="text"
+    name="city"
+    id="owner_city"
+    />
+    <label for="owner_phone_number">Enter your phone number:</label>
+    <input
+    type="text"
+    name="phone_number"
+    id="owner_phone_number"
+    />
+    <input type="submit" value="Register Owner">
+    </fieldset>
+</form>
+
+<h2>ANIMAL OWNERS</h2>
 <% @owners.each do |owner| %>
   <p>Name: <%=owner.name%></p>
   <% owner.animal.each do |animal| %>
@@ -6,4 +34,6 @@
     <%end%>
 
   <p><a href="/owners/<%=owner.id%>">Information</a></p>
+
+
   <%end%>
