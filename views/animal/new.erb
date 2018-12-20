@@ -1,32 +1,32 @@
 
-
-
 <form  action="/animals" method="post">
+<div class = "dom">
+<fieldset>
 
-<div class="new_an">
+
     <label for="name">Animal Name:</label>
-    <input
-    type="text"
-    name="animal_name"
-    id="name"
-    />
+    <input type="text" name="name" id="name"/>
 
-  <label for="species">Select type of animal:</label>
-    <select name="type" id="species">
+  <label for="type">Select type of animal:</label>
+    <select name="type" id="type">
       <option value="Cat">Cat</option>
       <option value="Dog">Dog</option>
+</select>
 
+      <label for="breed">Breed:</label>
+      <input type="text" name="breed" id="breed"/>
 
+  <label for="admission_date">Today's Date:</label>
+    <input type="text" name="admission_date" id="admission_date"/>
 
-    </select>
+    <label for="ready_adoption">Animal reday for adoption</label>
+      <select name="ready_adoption" id="ready_adoption">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+</select>
 
-  <label for="date">Today's Date:</label>
-    <input type="text" name="admission_date" id="date"/>
+</fieldset>
+</div>
+<input class="button" type="submit" value="Add Animal">
 
-
-
-
-<input type="hidden" name="available" id="available" value="yes">
-    <input class="button" type="submit" value="New Animal">
-    </div>
 </form>

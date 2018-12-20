@@ -72,7 +72,7 @@ end
     def self.find(id) #READ
       sql = "SELECT * FROM animals WHERE id = $1"
       values = [id]
-      result = SqlRunner.run(sql ,values)
+      result = SqlRunner.run(sql ,values)[0]
       animal = Animal.new(result)
       return animal
     end
@@ -95,7 +95,7 @@ end
     end
       return owner
    # run this sql
-    # use resukts to make owner object
+    # use results to make owner object
     # return  object
   end
 end

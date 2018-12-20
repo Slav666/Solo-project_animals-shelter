@@ -17,7 +17,7 @@ owner4.save
 
 animal1 = Animal.new({'name' => 'Neo', 'type' => 'cat', 'breed' => 'Persian', 'admission_date' => '12 04 2017', 'ready_adoption' => true, 'owner_id' => owner1.id})
 animal1.save
-animal2 = Animal.new({'name' => 'Morpheus', 'type' => 'dog', 'breed' => 'Boxer', 'admission_date' => '14 09 2017', 'ready_adoption' => true, 'owner_id' => nil})
+animal2 = Animal.new({'name' => 'Morpheus', 'type' => 'dog', 'breed' => 'Boxer', 'admission_date' => '14 09 2017', 'ready_adoption' => false, 'owner_id' => nil})
 animal2.save
 animal3 = Animal.new({'name' => 'Trinity', 'type' => 'cat', 'breed' => 'Persian', 'admission_date' => '03 04 2018', 'ready_adoption' => true, 'owner_id' => owner2.id})#animal3.save
 animal3.save

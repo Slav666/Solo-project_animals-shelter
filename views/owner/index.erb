@@ -1,5 +1,5 @@
 
-<h2>ENTER YOUR NAME TO BECOME ONE OF US</h2>
+<h2>ENTER YOUR NAME IF YOU WANT TO JOIN</h2>
 
 <form  action="/owners" method="post">
 
@@ -27,8 +27,14 @@
 </form>
 
 <h2>ANIMAL OWNERS</h2>
+<div>
+  <fieldset>
+
+
 <% @owners.each do |owner| %>
   <p>Name: <%=owner.name%></p>
+  <p>City: <%=owner.city%></p>
+  <p>Phone: <%=owner.phone_number%></p>
   <% owner.animal.each do |animal| %>
   <p>Animal: <%=animal.name%></p>
     <%end%>
@@ -37,3 +43,5 @@
 
 
   <%end%>
+  </fieldset>
+</div>

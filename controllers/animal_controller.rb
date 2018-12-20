@@ -5,22 +5,19 @@ require_relative('../models/animal')
 also_reload('./models/*')
 
 
-
+require('pry')
 
 get '/animals' do
   @animals = Animal.all
   erb( :"animal/index" )
 end
 
-get '/animals/new' do
+get '/animals/new' do  #this one need to be first before next line
   @animals = Animal.all
   erb(:"animal/new")
 end
 
-get '/animals/:id' do
-  @animal = Animal.find(params[:id].to_i)
-  erb( :"animal/show" )
-end
+
 
 
 post '/animals' do
@@ -41,4 +38,9 @@ post '/animals/:id/adopt' do
   animal.ready_adoption = params['ready_adoption']
   animal.update
   redirect to "/animals"
+end
+
+get '/animals/:id' do
+  @animal = Animal.find(params[:id].to_i)
+  erb( :"animal/show" )
 end

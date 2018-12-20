@@ -1,18 +1,23 @@
+<div class = "na-nav"
+<p><a href="animals/new">Add new animal</a></p>
+</div>
+ <h4>Animals We Have:</h4>
+<div>
+  <fieldset>
 
- <h4>Animals We Have:</h4> 
 
   <% @animals.each do |animal| %>
   <p>Name: <%=animal.name%> </p>
   <p>Type: <%=animal.type%> </p>
   <p>Breed: <%=animal.breed%></p>
-  <p>Admission: <%=animal.admission_date%></p>
-  <p>Ready for adoption: <%=animal.ready_adoption%></p>
+  <p>Admission: <%=animal.admission_date() %></p>
+  <% if animal.ready_adoption() == "t" %> <span>Is the Animal Adoptable: Yes</span>
+  <% end %>
+  <% if animal.ready_adoption() == "f" %> <span>Is the Animal Adoptable: No</span>
+  <% end %>
+
   <p>Owner: <%=animal.owner.name if animal.owner%></p>
 
-
-
-
-
-
-    <p><a href="/animals/<%=animal.id%>">Information</a></p>
-    <%end%>
+<%end%>
+</fieldset>
+</div>
