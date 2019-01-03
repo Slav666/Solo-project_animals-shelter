@@ -46,10 +46,10 @@ def save()
     SqlRunner.run(sql, values)
   end
 
-  def delete()# DELETE
+  def self.delete(id)# DELETE
     sql = "DELETE FROM owners
     WHERE id = $1"
-    values = [@id]
+    values = [id]
     SqlRunner.run(sql, values)
   end
 

@@ -46,6 +46,7 @@ def setup
           'admission_date' => '19 01 2016',
           'ready_adoption' => 'no',
           'owner_id' => nil})# ask about this
+          @animals = [@animal_1, @animal_2, @animal_3, @animal_4, @animal_5]
       end
 
 def test_animal_has_name
@@ -75,5 +76,7 @@ def test_animal_has_owner
 end
 #need an animal
 # animal.giveMeMyOwner()
+
+
 
 end

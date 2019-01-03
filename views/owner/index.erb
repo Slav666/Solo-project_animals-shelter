@@ -1,47 +1,43 @@
 
-<h2>ENTER YOUR NAME IF YOU WANT TO JOIN</h2>
+<h2>ENTER YOUR DETAILS IF YOU WANT TO ADOPT</h2>
 
 <form  action="/owners" method="post">
 
-<fieldset>
+<div class="add-animal"
     <label for="owner_name">Enter Your Name:</label>
-    <input
+    <input class="input"
     type="text"
     name="name"
     id="owner_name"
     />
-    <label for="owner_city">Enter your city:</label>
-    <input
+    <label for="owner_city">Enter Your City:</label>
+    <input class="input"
     type="text"
     name="city"
     id="owner_city"
     />
-    <label for="owner_phone_number">Enter your phone number:</label>
-    <input
+    <label for="owner_phone_number">Enter Your Phone Number:</label>
+    <input class="input"
     type="text"
     name="phone_number"
     id="owner_phone_number"
     />
-    <input type="submit" value="Register Owner">
-    </fieldset>
+    <input class="button" type="submit" value="Register Owner">
+    </div>
 </form>
 
-<h2>ANIMAL OWNERS</h2>
-<div>
-  <fieldset>
-
+<h3>ANIMAL OWNERS:</h3>
+<div class="display">
 
 <% @owners.each do |owner| %>
   <p>Name: <%=owner.name%></p>
-  <p>City: <%=owner.city%></p>
-  <p>Phone: <%=owner.phone_number%></p>
+
   <% owner.animal.each do |animal| %>
   <p>Animal: <%=animal.name%></p>
     <%end%>
 
-  <p><a href="/owners/<%=owner.id%>">Information</a></p>
+  <p><a class="button" href="/owners/<%=owner.id%>">More Information</a></p>
 
+<%end%>
 
-  <%end%>
-  </fieldset>
 </div>

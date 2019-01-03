@@ -1,16 +1,28 @@
+<br>
+<br>
+<div class="display">
 
-<div>
-<fieldset>
 
 <p>Animal Name: <%=@animal.name%></p>
 <p>Type: <%=@animal.type%></p>
-<p>Breed: <%@animal.breed%></p>
+<p>Breed: <%=@animal.breed%></p>
 <p>Resident Since: <%=@animal.admission_date%></p>
-<p>Available: <%=@animal.ready_adoption%></p>
 
-<% if @animal.ready_adoption == "yes" %>
-<a href="/animals/<%=@animal.id%>/adopt">Adopt Animal</a>
+
+
+<% if @animal.ready_adoption() == "t" %> <span>Is the Animal Adoptable: Yes</span>
+<% end %>
+<% if @animal.ready_adoption() == "f" %> <span>Is the Animal Adoptable: No</span>
+<% end %>
+
+
+
+
+
+
+<% if @animal.ready_adoption == "t" %>
+<br>
+<br>
+<p><a class="button" href="/animals/<%=@animal.id%>/adopt">Adopt Animal</a></p>
 <%end%>
-
-</fieldset>
 </div>
